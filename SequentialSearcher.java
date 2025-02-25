@@ -25,20 +25,27 @@ public class SequentialSearcher {
     // Finds and returns the largest element in the array.
     // If the array is empty, it returns Integer.MIN_VALUE.
     public static int max(int[] array) {
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array cannot be empty");
+        }
         int max = Integer.MIN_VALUE;
         for (int num : array) {
             if (num > max) {
-                max = num; // Update max if a larger value is found.
+                max = num;
             }
         }
+        return max;
+    }
 
-    /
 
-     fo     s 
-    
-    
-        
-    r
+     // Calculates and returns the sum of all elements in the array.
+    public static int sum(int[] array) {
+        int sum = 0;
+        for (int num : array) {
+            sum += num; // Add each element to the sum.
+        }
+        return sum; // Return the sum of the array elements.
+    }
 
     // Finds and returns the smallest odd element in the array.
     // If no odd element is found, it returns -1.
@@ -62,13 +69,11 @@ public class SequentialSearcher {
                 }
             }
         }
-         return false; // Return false if no duplicates are found.
+        return false; // Return false if no duplicates are found.
     }
-    // 
 
     // Returns a new array containing only the even elements from the original array.
     public static int[] even(int[] array) {
-    // 
         int count = 0;
         for (int num : array) {
             if (num % 2 == 0) {
@@ -112,45 +117,45 @@ public class SequentialSearcher {
             }
         }
 
-        i    return 1; // Return 1 if the array is sorte
-
+        if (ascending) {
+            return 1; // Return 1 if the array is sorted in ascending order.
         } else if (descending) {
             return -1; // Return -1 if the array is sorted in descending order.
         }
-        return 0; // Return 0 if the array is unsorted.
+        return 0; // Return  0 if the array  is unsorted.
     }
 
-    // Main method for testing the functionality of the methods
-    public static void main(String[] args) {
+     // Main method for testing the functionality of the met ds
+    public static void main(String[] args) { 
         int[] testArray = {3, 1, 4, 1, 5, 9};
 
-        // Testing find method
+        // Testing find method 
         System.out.println("Find 4: " + find(testArray, 4));  // Output: 2
         System.out.println("Find 7: " + find(testArray, 7));  // Output: -1
-
+ 
         // Testing count method
         System.out.println("Count of 1: " + count(testArray, 1));  // Output: 2
-
+ 
         // Testing max method
         System.out.println("Max value: " + max(testArray));  // Output: 9
-
+ 
         // Testing sum method
         System.out.println("Sum: " + sum(testArray));  // Output: 23
-
+ 
         // Testing minOdd method
         System.out.println("Smallest odd: " + minOdd(testArray));  // Output: 1
 
         // Testing containsDuplicate method
         System.out.println("Contains duplicate: " + containsDuplicate(testArray));  // Output: true
-
+ 
         // Testing even method
         int[] evenArray = even(testArray);
         System.out.print("Even numbers: ");
         for (int num : evenArray) {
-            System.out.print(num + " ");  // Output: 4
+            System.out.print(num + " ");  // Output: 4 
         }
         System.out.println();
-
+ 
         // Testing isSorted method
         System.out.println("Is sorted: " + isSorted(testArray));  // Output: false
 
